@@ -11,5 +11,4 @@ RSpec.describe "Emails", :type => :request do
     expect(first_email.email_type).to eq('Shipment')
     expect(first_email.event).to eq('send')
   end
-
 end

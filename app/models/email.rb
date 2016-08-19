@@ -4,4 +4,12 @@ class Email < ActiveRecord::Base
     Email.where(event: 'send').count
   end  
 
+  def total_opened
+    Email.where(event: 'open').count
+  end
+
+  def total_clicked
+    Email.where(event: 'click').count
+  end
+
 end
