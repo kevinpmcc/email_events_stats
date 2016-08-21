@@ -5,10 +5,10 @@ data.
 
 Technologies used
 -----------
-Ruby On Rails
-Postgresql
-Rspec and Capybara for testing
-Rubocop for style
+Ruby On Rails  
+Postgresql  
+Rspec and Capybara for testing  
+Rubocop for style  
 
 Installation Instructions
 -------
@@ -29,7 +29,11 @@ To setup databases enter
 
 <code>rake db:create</code>
  
+<code>rake db:create RAILS_ENV=test</code>
+
 <code>rake db:migrate</code>
+
+<code>rake db:migrate RAILS_ENV=test</code>
 
 To run tests  
 
@@ -70,7 +74,7 @@ off of Request RSpec documentation https://www.relishapp.com/rspec/rspec-rails/d
 
 Initially I had my feature tests to look for specific ids within the HTML but
 found this too cumbersome and required too much manual work in the HTML. Instead
-I looked at entire page in each feature test and expected it to contain specific
+I looked at the entire page in each feature test and expected it to contain specific
 strings showing the calculation of statistics appear correctly.
 
 Towards the end I renamed my Email models, views, controllers to be EmailEvent as this better
