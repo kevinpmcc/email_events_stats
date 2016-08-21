@@ -1,22 +1,23 @@
 require 'rails_helper'
+require 'create_emails_helper'
 
 feature 'emails' do
-    context 'one email sent event data received' do
+  context 'one email sent event data received' do
     before :each do
-      5.times {create_email(email_type: 'Order')}
-      2.times {create_email(email_type: 'Shipment')}
-      4.times {create_email(email_type: 'UserConfirmation')}
-      3.times {create_email(email_type: 'GetABookDiscount')}
-      2.times {create_email(email_type: 'ReferAFriend')}
-      2.times {create_email(email_type: 'Order', event: 'open')}
-      2.times {create_email(email_type: 'Shipment', event: 'open')}
-      1.times {create_email(email_type: 'UserConfirmation', event: 'open')}
-      1.times {create_email(email_type: 'GetABookDiscount', event: 'open')}
-      2.times {create_email(email_type: 'ReferAFriend', event: 'open')}
-      1.times {create_email(email_type: 'Order', event: 'click')}
-      2.times {create_email(email_type: 'Shipment', event: 'click')}
-      1.times {create_email(email_type: 'UserConfirmation', event: 'click')}
-      1.times {create_email(email_type: 'GetABookDiscount', event: 'click')}
+      5.times { create_email(email_type: 'Order') }
+      2.times { create_email(email_type: 'Shipment') }
+      4.times { create_email(email_type: 'UserConfirmation') }
+      3.times { create_email(email_type: 'GetABookDiscount') }
+      2.times { create_email(email_type: 'ReferAFriend') }
+      2.times { create_email(email_type: 'Order', event: 'open') }
+      2.times { create_email(email_type: 'Shipment', event: 'open') }
+      1.times { create_email(email_type: 'UserConfirmation', event: 'open') }
+      1.times { create_email(email_type: 'GetABookDiscount', event: 'open') }
+      2.times { create_email(email_type: 'ReferAFriend', event: 'open') }
+      1.times { create_email(email_type: 'Order', event: 'click') }
+      2.times { create_email(email_type: 'Shipment', event: 'click') }
+      1.times { create_email(email_type: 'UserConfirmation', event: 'click') }
+      1.times { create_email(email_type: 'GetABookDiscount', event: 'click') }
     end
 
     scenario 'it should display total number of emails events' do
@@ -44,9 +45,5 @@ feature 'emails' do
       expect(page).to have_content 'Click rate per ReferAFriend email: 0.0%'
     end
 
-
-  def create_email(address: 'fakeperson@lostmyna.me', email_type: 'Order', event: 'send', timestamp: '1471441341') 
-    Email.create(address: address, email_type: email_type, event: event, timestamp: timestamp)
   end
-end
 end

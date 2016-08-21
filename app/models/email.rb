@@ -4,7 +4,7 @@ class Email < ActiveRecord::Base
     Email.where(event: event).count
   end  
 
-  def self.event_rate_by_type(email_type: ,event:)
+  def self.event_rate_by_type(email_type:, event:)
     emails = Email.all
     sent_emails = emails.where(event: 'send', email_type: email_type).count
     emails_with_event = emails.where(event: event, email_type: email_type).count

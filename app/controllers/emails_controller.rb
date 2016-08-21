@@ -1,6 +1,5 @@
 class EmailsController < ApplicationController
 
-
   def index
     @emails = Email.all
   end
@@ -11,7 +10,7 @@ class EmailsController < ApplicationController
   end
 
   def email_params
-    data = JSON.load(request.body) 
+    data = JSON.load(request.body)
     {
       address: data['Address'],
       email_type: data['EmailType'],
@@ -19,6 +18,4 @@ class EmailsController < ApplicationController
       timestamp: data['Timestamp']
     }
   end
-
 end
-
