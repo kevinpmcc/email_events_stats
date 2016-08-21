@@ -40,20 +40,20 @@ This was manually tested using the llirdnam test data.
 If you have that installed you can start sending events by going to
 llirdman-master.  
 <code>go run listener/listener.go</code>   
-<code>go run llirdman/llirdman.go http://localhost:3000/email_events</code>
+<code>go run llirdman/llirdman.go http://localhost:3000/email-events</code>
 
 Go to your browser URL bar and enter  
-<code>localhost:3000/</code>
+<code>localhost:3000</code>
 
 Approach Taken
 --------
 I took a TDD approach to the task writing tests before writing code. 
 My first test was a feature test and kept that failing as I wrote unit tests
-that would fulfill the need.  
+that would eventually pass them.  
 
 After passing basic tests to show app was initialized correctly I worked on how to handle the webhook. As I had not done
 this before I spiked this initially (working without tests) to see how it
-worked. Once I'd established this I deleted all the code and redid it using
+worked. Once I got that working I deleted all the code and redid it using
 tests. 
 
 To test the incoming webhook I sent a post request in emails_json_spec.rb based
@@ -62,7 +62,26 @@ off of Request RSpec documentation https://www.relishapp.com/rspec/rspec-rails/d
 Initially I had my feature tests to look for specific ids within the HTML but
 found this too cumbersome and required too much manual work in the HTML. Instead
 I looked at entire page in each feature test and expected it to contain specific
-strings.
+strings showing the calculation of statistics appear correctly.
+
+Towards the end I renamed my Email models, views, controllers to be EmailEvent as this better
+describes what we're dealing with. 
+
+Expansion
+--------
+Incorporating with a real Mandrill account. There is documentation and even Ruby
+Gems to help with this. Currently in order to work with fake data there is no
+authentication which would need to be implemented when working with real
+account.
+
+Currently the display needs to be manually refreshed to update. Including some
+JS to do this may be useful if users want to have real-time view all the time. 
+
+
+
+
+
+
 
 
 
