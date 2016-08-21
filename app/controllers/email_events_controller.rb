@@ -1,11 +1,11 @@
-class EmailsController < ApplicationController
+class EmailEventsController < ApplicationController
 
   def index
-    @emails = Email.all
+    @email_events = EmailEvent.all
   end
 
   def create
-    email = Email.new(email_params)
+    email = EmailEvent.new(email_params)
     render json: email if email.save
   end
 

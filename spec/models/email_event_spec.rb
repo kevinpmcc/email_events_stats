@@ -1,11 +1,11 @@
 require 'rails_helper'
 require 'create_emails_helper'
 
-describe Email, type: :model do
+describe EmailEvent, type: :model do
   context 'no sent mails' do
     describe '#event_total' do
       it 'returns no emails when none have been sent' do
-        expect(Email.event_total('send')).to eq(0)
+        expect(EmailEvent.event_total('send')).to eq(0)
       end
     end
   end
@@ -30,23 +30,23 @@ describe Email, type: :model do
 
     describe '#event_total' do
       it 'counts number of sent emails' do
-        expect(Email.event_total('send')).to eq(16)
+        expect(EmailEvent.event_total('send')).to eq(16)
       end
 
       it 'counts number of opened emails' do
-        expect(Email.event_total('open')).to eq(8)
+        expect(EmailEvent.event_total('open')).to eq(8)
       end
 
       it 'counts number of opened emails' do
-        expect(Email.event_total('click')).to eq(5)
+        expect(EmailEvent.event_total('click')).to eq(5)
       end
     end
     describe '#event_rate_by_type' do
       it 'calculates open rate of getabookdiscount' do
-        expect(Email.event_rate_by_type(email_type: 'GetABookDiscount', event: 'open')).to eq 33.33
+        expect(EmailEvent.event_rate_by_type(email_type: 'GetABookDiscount', event: 'open')).to eq 33.33
       end
       it 'calculates click rate of shipment' do
-        expect(Email.event_rate_by_type(email_type: 'Shipment', event: 'click')).to eq 100.00
+        expect(EmailEvent.event_rate_by_type(email_type: 'Shipment', event: 'click')).to eq 100.00
       end
     end
   end
