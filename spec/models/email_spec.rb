@@ -44,10 +44,10 @@ describe Email, type: :model do
     end
     describe '#event_rate_by_type' do
       it 'calculates open rate of getabookdiscount' do
-        expect(Email.event_rate_by_type(email_type: 'GetABookDiscount', event: 'open')).to eq 0.33
+        expect(Email.event_rate_by_type(email_type: 'GetABookDiscount', event: 'open')).to eq 33.33
       end
       it 'calculates click rate of shipment' do
-        expect(Email.event_rate_by_type(email_type: 'Shipment', event: 'click')).to eq 1 
+        expect(Email.event_rate_by_type(email_type: 'Shipment', event: 'click')).to eq 100.00 
       end
     end
   end

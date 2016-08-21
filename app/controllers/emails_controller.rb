@@ -1,8 +1,8 @@
 class EmailsController < ApplicationController
 
-  skip_filter :verify_authenticity_token
 
   def index
+    @emails = Email.all
   end
 
   def create

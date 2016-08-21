@@ -8,6 +8,12 @@ class Email < ActiveRecord::Base
     emails = Email.all
     sent_emails = emails.where(event: 'send', email_type: email_type).count
     emails_with_event = emails.where(event: event, email_type: email_type).count
-    (emails_with_event.to_f / sent_emails).round(2)
+    ((emails_with_event.to_f / sent_emails) * 100).round(2)
+  end
+
+  def self.email_type
+    Email.all.map { |i|
+      i.email_type
+     }.uniq 
   end
 end
