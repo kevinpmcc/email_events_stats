@@ -40,10 +40,10 @@ This was manually tested using the llirdnam test data.
 If you have that installed you can start sending events by going to
 llirdman-master.  
 <code>go run listener/listener.go</code>   
-<code>go run llirdman/llirdman.go http://localhost:3000/emails</code>
+<code>go run llirdman/llirdman.go http://localhost:3000/email_events</code>
 
 Go to your browser URL bar and enter  
-<code>localhost:3000/emails</code>
+<code>localhost:3000/</code>
 
 Approach Taken
 --------

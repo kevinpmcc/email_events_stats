@@ -1,14 +1,22 @@
 <h1>Email Statistics</h1>
+
 <h2>Totals</h2>
-Emails sent: <%= @email_events.event_total('send')%></span><br>
-Emails opened: <%= @email_events.event_total('open')%></span><br>
-Emails clicked: <%= @email_events.event_total('click')%></span><br>
+<ul>
+<li>Emails sent: <%= @email_events.event_total('send')%></li>
+<li>Emails opened: <%= @email_events.event_total('open')%></li>
+<li>Emails clicked: <%= @email_events.event_total('click')%></li>
+</ul>
+
 <h2>Open Rates</h2>
+<ul>
 <% @email_events.email_type.each do |email_type| %>
-  Open rate for <%= email_type %> emails: <%= @email_events.event_rate_by_type(email_type:"#{email_type}", event: 'open') %>%<br>
+  <li>Open rate for <%= email_type %> emails: <%= @email_events.event_rate_by_type(email_type:"#{email_type}", event: 'open') %>%</li>
 <% end %>
+</ul>
 
 <h2>Click Rates</h2>
+<ul>
 <% @email_events.email_type.each do |email_type| %>
-  Click rate for <%= email_type %> emails: <%= @email_events.event_rate_by_type(email_type:"#{email_type}", event: 'click') %>%<br>
+  <li>Click rate for <%= email_type %> emails: <%= @email_events.event_rate_by_type(email_type:"#{email_type}", event: 'click') %>%</li>
 <% end %>
+</ul>
