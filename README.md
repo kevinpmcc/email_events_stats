@@ -12,7 +12,7 @@ Rubocop for style
 
 Installation Instructions
 -------
-start by cloning this repository.   
+Start by cloning this repository.   
 In terminal or other Command line tool put in the below
 
 <code>git clone https://github.com/kevinpmcc/email_events_stats.git</code>
@@ -26,30 +26,39 @@ To install all gems enter
 <code>bundle install</code>
 
 To setup databases enter  
+
 <code>rake db:create</code>
  
 <code>rake db:migrate</code>
 
 To run tests  
+
 <code>rspec</code>
 
 To start rails server  
+
 <code>rails s</code>
 
 This was manually tested using the llirdnam test data.  
 If you have that installed you can start sending events by going to
-llirdman-master.  
+llirdman-master. While the rails server is still running open a new terminal tab
+and enter  
+ 
 <code>go run listener/listener.go</code>   
+
+Then open a third tab and enter  
+
 <code>go run llirdman/llirdman.go http://localhost:3000/email-events</code>
 
 Go to your browser URL bar and enter  
+
 <code>localhost:3000</code>
 
 Approach Taken
 --------
 I took a TDD approach to the task writing tests before writing code. 
-My first test was a feature test and kept that failing as I wrote unit tests
-that would eventually pass them.  
+I started writing feature test and kept those failing as I wrote unit tests
+that would allow me to write the code that would eventually pass all tests.  
 
 After passing basic tests to show app was initialized correctly I worked on how to handle the webhook. As I had not done
 this before I spiked this initially (working without tests) to see how it
@@ -75,14 +84,5 @@ authentication which would need to be implemented when working with real
 account.
 
 Currently the display needs to be manually refreshed to update. Including some
-JS to do this may be useful if users want to have real-time view all the time. 
-
-
-
-
-
-
-
-
-
-
+JS to do this may be useful if users want to have real-time view all the time
+without having to refresh. 
