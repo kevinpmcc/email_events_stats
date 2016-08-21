@@ -18,7 +18,7 @@ feature 'email events statistics' do
       2.times { create_email(email_type: 'Shipment', event: 'click') }
       1.times { create_email(email_type: 'UserConfirmation', event: 'click') }
       1.times { create_email(email_type: 'GetABookDiscount', event: 'click') }
-      visit '/email_events'
+      visit '/email-events'
     end
 
     scenario 'it should display total number of emails events' do
